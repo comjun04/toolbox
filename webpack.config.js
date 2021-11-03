@@ -19,7 +19,7 @@ module.exports = {
   },
   mode: 'development',
   optimization: {
-    runtimeChunk: 'single',
+    // runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
         vendor: {
@@ -31,14 +31,14 @@ module.exports = {
     }
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    port: 3000,
     hot: true
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /[\\/]node_modules[\\/]/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -61,7 +61,7 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Toolbox'
+      template: path.join(__dirname, 'src/index.html')
     })
   ]
 }

@@ -48,7 +48,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          MiniCssExtractLPlugin.loader, 
+          MiniCssExtractPlugin.loader, 
           'css-loader'
         ]
       }
@@ -57,7 +57,7 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Toolbox'
+      template: path.join(__dirname, 'src/index.html')
     })
   ]
 }
